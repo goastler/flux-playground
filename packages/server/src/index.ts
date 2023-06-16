@@ -1,14 +1,15 @@
 import express, { Express, Request, Response } from 'express';
 import dotenv from 'dotenv';
+import path from 'path';
 
 dotenv.config();
 
 const app: Express = express();
 const port: number = Number(process.env.PORT || 3000);
+const websitePath: string = path.resolve(process.cwd(), process.env.WEBSITE_PATH || './website');
 
-app.get('/', (req: Request, res: Response) => {
-  res.send('Express + TypeScript Server');
-});
+console.log('Website path:', websitePath);
+app.use(express.static(websitePath));
 
 app.get('/info', (req: Request, res: Response) => {
     fetch('https://api.ipify.org').then(res => res.text()).then(serverIp => {
