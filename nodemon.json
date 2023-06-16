@@ -1,0 +1,11 @@
+{
+    "verbose": true,
+    "watch": [
+        "packages/*/src/*"
+    ],
+    "env": {
+
+    },
+    "ext": "js,ts,tsx,json,html,css",
+    "restart": "osascript -e 'display notification \"App restarted due to:\n'$FILENAME'\" with title \"nodemon\"'"
+  }
